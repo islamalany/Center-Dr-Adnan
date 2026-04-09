@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Appointment | Dr. Adnan Center Doha</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode:"class",
+    theme:{
+      extend:{
+        colors:{
+          "primary-container":"#f8c8dc","primary-fixed":"#ffd8e7","on-secondary-container":"#39710c",
+          "surface-variant":"#dde3e7","on-secondary":"#ffffff","on-error":"#ffffff","on-background":"#161d1f",
+          "surface-container-highest":"#dde3e7","outline-variant":"#d2c3c7","secondary-fixed":"#b3f583",
+          "secondary-container":"#b3f583","on-primary-fixed":"#2e1221","on-primary":"#ffffff",
+          "on-tertiary-container":"#346274","on-surface-variant":"#4f4448","outline":"#817478",
+          "on-tertiary":"#ffffff","surface-container":"#e8eff2","on-surface":"#161d1f","tertiary":"#376477",
+          "surface-container-high":"#e2e9ec","surface-container-low":"#eef5f8","on-secondary-fixed":"#0b2000",
+          "secondary":"#336b03","on-primary-container":"#765162","surface":"#f4fafe","error":"#ba1a1a",
+          "primary":"#795465","on-secondary-fixed-variant":"#245100","surface-bright":"#f4fafe",
+          "secondary-fixed-dim":"#98d86a","inverse-surface":"#2b3134","tertiary-container":"#aedcf2",
+          "on-error-container":"#93000a","error-container":"#ffdad6","surface-container-lowest":"#ffffff","background":"#f4fafe"
+        },
+        borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},
+        fontFamily:{"headline":["Plus Jakarta Sans","Cairo"],"body":["Inter","Cairo"],"label":["Inter","Cairo"]}
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  #mobile-menu { display:none; }
+  #mobile-menu.open { display:block; }
+  #success-msg { display:none; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+
+<!-- ── Nav ── -->
+<header class="sticky top-0 z-50 bg-[#f4fafe]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(121,84,101,0.08)]">
+  <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">favorite</span>
+      </div>
+      <span data-i18n="nav.brand" class="text-2xl font-bold tracking-tighter text-[#795465] font-headline">Dr. Adnan Center</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a data-i18n="nav.treatments" class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="services.html">Treatments</a>
+      <a data-i18n="nav.ivf"        class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="services.html#ivf-journey">IVF Journey</a>
+      <a data-i18n="nav.clinic"     class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#why-us">Our Clinic</a>
+      <a data-i18n="nav.stories"    class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#testimonials">Success Stories</a>
+      <a data-i18n="nav.contact"    class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#footer">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleLang()" data-i18n="nav.lang" class="hidden md:block text-[#795465] font-medium px-4 py-2 hover:opacity-70 transition-opacity">العربية</button>
+      <a data-i18n="nav.book" href="book-appointment.html" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-full font-bold shadow-lg hover:scale-95 transition-all inline-block">Book Appointment</a>
+      <button id="menu-toggle" class="md:hidden p-2 text-primary"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="bg-[#f4fafe] px-8 pb-6 md:hidden border-t border-outline-variant/10">
+    <div class="flex flex-col space-y-4 pt-4">
+      <a data-i18n="nav.treatments" href="services.html"           class="text-slate-600 font-medium">Treatments</a>
+      <a data-i18n="nav.ivf"        href="services.html#ivf-journey" class="text-slate-600 font-medium">IVF Journey</a>
+      <a data-i18n="nav.clinic"     href="index.html#why-us"       class="text-slate-600 font-medium">Our Clinic</a>
+      <a data-i18n="nav.stories"    href="index.html#testimonials" class="text-slate-600 font-medium">Success Stories</a>
+      <a data-i18n="nav.contact"    href="index.html#footer"       class="text-slate-600 font-medium">Contact</a>
+      <button onclick="toggleLang()" data-i18n="nav.lang" class="text-left text-[#795465] font-medium">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="min-h-screen pt-12 pb-24 px-6 relative">
+  <div class="absolute top-0 right-0 -z-10 w-1/2 h-screen bg-gradient-to-b from-primary-container/20 to-transparent blur-3xl rounded-full translate-x-1/2 -translate-y-1/4"></div>
+  <div class="absolute bottom-0 left-0 -z-10 w-1/3 h-[600px] bg-secondary-container/10 blur-3xl rounded-full -translate-x-1/4"></div>
+
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 data-i18n="book.h1"  class="text-4xl md:text-5xl font-headline font-extrabold text-primary tracking-tight mb-4">Your Journey to Parenthood Starts Here</h1>
+      <p  data-i18n="book.sub" class="text-lg text-tertiary max-w-2xl mx-auto leading-relaxed">
+        Request a confidential consultation with Qatar's leading fertility specialists. We are committed to providing you with the highest standard of personalized care.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Form -->
+      <div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0_20px_40px_rgba(121,84,101,0.05)] border border-outline-variant/10">
+
+        <!-- Success message -->
+        <div id="success-msg" class="mb-8 p-6 bg-secondary-container/20 rounded-lg border border-secondary/20 text-center">
+          <span class="material-symbols-outlined text-secondary text-4xl mb-2" style="font-variation-settings:'FILL' 1;">check_circle</span>
+          <h3 data-i18n="book.ok.title" class="font-bold text-lg text-on-secondary-fixed-variant mb-1">Request Received!</h3>
+          <p  data-i18n="book.ok.desc"  class="text-sm text-on-surface-variant">Our team will contact you within 24 hours to confirm your appointment. Thank you!</p>
+        </div>
+
+        <form id="appointment-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label data-i18n="book.name" class="text-sm font-semibold text-on-surface-variant px-1">Full Name *</label>
+              <input required data-i18n-ph="book.name.ph" class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none" placeholder="e.g. Sarah Ahmed" type="text"/>
+            </div>
+            <div class="space-y-2">
+              <label data-i18n="book.phone" class="text-sm font-semibold text-on-surface-variant px-1">Phone Number *</label>
+              <input required class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none" placeholder="+974 4498 9955" type="tel"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label data-i18n="book.email" class="text-sm font-semibold text-on-surface-variant px-1">Email Address *</label>
+            <input required class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none" placeholder="sarah@example.com" type="email"/>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label data-i18n="book.service" class="text-sm font-semibold text-on-surface-variant px-1">Service Type</label>
+              <select class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none appearance-none cursor-pointer">
+                <option>IVF Consultation</option>
+                <option>Fertility Screening</option>
+                <option>Genetic Counseling</option>
+                <option>Pregnancy Care</option>
+                <option>4D Ultrasound</option>
+                <option>Male Infertility</option>
+                <option>Female Infertility</option>
+                <option>Wellness &amp; Nutrition</option>
+                <option>Follow-up Visit</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label data-i18n="book.date" class="text-sm font-semibold text-on-surface-variant px-1">Preferred Date</label>
+              <input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none" type="date"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label data-i18n="book.msg" class="text-sm font-semibold text-on-surface-variant px-1">Additional Message (optional)</label>
+            <textarea rows="3" class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all outline-none resize-none" placeholder="Tell us briefly about your situation or questions..."></textarea>
+          </div>
+          <div class="pt-4">
+            <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary-container text-white font-bold py-5 rounded-full shadow-lg hover:shadow-xl hover:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3">
+              <span class="material-symbols-outlined">calendar_today</span>
+              <span data-i18n="book.submit">Request Appointment</span>
+            </button>
+          </div>
+          <div class="flex items-start gap-3 pt-2 text-on-surface-variant/70 text-sm">
+            <span class="material-symbols-outlined text-primary flex-shrink-0" style="font-variation-settings:'FILL' 1; font-size:18px;">verified_user</span>
+            <p data-i18n="book.privacy">Your privacy is our priority. All information shared is encrypted and handled with the utmost medical confidentiality under Qatar's health regulations.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-4 space-y-6">
+
+        <!-- WhatsApp -->
+        <div class="bg-secondary-container/20 rounded-lg p-8 border border-secondary-container/30">
+          <div class="mb-4">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm">
+              <span class="material-symbols-outlined text-secondary text-3xl">chat</span>
+            </div>
+            <h3 data-i18n="book.wa.title" class="text-xl font-headline font-bold text-on-secondary-fixed-variant">Instant Support</h3>
+            <p  data-i18n="book.wa.desc"  class="text-on-secondary-fixed-variant/80 text-sm mt-2">Prefer a quick chat? Our patient care team is available 24/7 on WhatsApp for inquiries.</p>
+          </div>
+          <a data-i18n="book.wa.btn" href="https://wa.me/97444989955" target="_blank"
+             class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-6 py-3 rounded-full hover:bg-on-secondary-container transition-colors shadow-md w-full justify-center">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">chat</span>
+            Start Chat
+          </a>
+        </div>
+
+        <!-- Clinic Info -->
+        <div class="bg-surface-container rounded-lg p-8">
+          <h4 data-i18n="book.clinic.title" class="font-bold text-primary mb-4">Visit Our Clinic</h4>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-tertiary flex-shrink-0">location_on</span>
+              <p class="text-sm text-on-surface-variant">Unnamed Road, Doha, Qatar</p>
+            </div>
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-tertiary flex-shrink-0">schedule</span>
+              <p data-i18n="book.hours" class="text-sm text-on-surface-variant">Sat – Thu: 8:00 AM – 8:00 PM | Friday: Closed</p>
+            </div>
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-tertiary flex-shrink-0">call</span>
+              <p class="text-sm text-on-surface-variant">+974 4498 9955</p>
+            </div>
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-tertiary flex-shrink-0">mail</span>
+              <p class="text-sm text-on-surface-variant">info@dradnancenter.qa</p>
+            </div>
+          </div>
+          <!-- Map placeholder -->
+          <div class="mt-6 rounded-lg overflow-hidden h-36 bg-surface-container-high flex items-center justify-center">
+            <div class="text-center text-on-surface-variant/50">
+              <span class="material-symbols-outlined text-3xl mb-1">map</span>
+              <p class="text-xs">Unnamed Road, Doha</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust -->
+        <div class="bg-surface-container-lowest rounded-lg p-6 border border-outline-variant/10">
+          <h4 data-i18n="book.trust.title" class="font-bold text-on-surface mb-4 text-sm">Accredited &amp; Trusted</h4>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings:'FILL' 1;">verified</span>
+              <span data-i18n="book.trust.1" class="text-sm text-on-surface-variant">Ministry of Public Health, Qatar</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings:'FILL' 1;">verified</span>
+              <span data-i18n="book.trust.2" class="text-sm text-on-surface-variant">Joint Commission International (JCI)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings:'FILL' 1;">verified</span>
+              <span data-i18n="book.trust.3" class="text-sm text-on-surface-variant">92% IVF Success Rate (2023)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer class="rounded-t-[3rem] mt-20 bg-[#eef5f8]">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-7xl mx-auto">
+    <div class="col-span-1 md:col-span-1">
+      <div class="text-xl font-bold text-[#795465] font-headline mb-4">Dr. Adnan Center</div>
+      <p data-i18n="footer.about" class="text-slate-500 text-sm leading-relaxed">A premier fertility boutique center in the heart of Doha, dedicated to providing world-class IVF and reproductive care.</p>
+    </div>
+    <div>
+      <h5 data-i18n="footer.quick" class="font-bold text-on-surface mb-4">Patient Links</h5>
+      <ul class="space-y-2">
+        <li><a data-i18n="footer.privacy"  href="#" class="text-slate-500 hover:text-[#795465]">Privacy Policy</a></li>
+        <li><a data-i18n="footer.rights"   href="#" class="text-slate-500 hover:text-[#795465]">Patient Rights</a></li>
+        <li><a data-i18n="footer.careers"  href="#" class="text-slate-500 hover:text-[#795465]">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="footer.trt" class="font-bold text-on-surface mb-4">Our Services</h5>
+      <ul class="space-y-2">
+        <li><a href="services.html" class="text-slate-500 hover:text-[#795465]">IVF Treatments</a></li>
+        <li><a href="services.html" class="text-slate-500 hover:text-[#795465]">ICSI Procedures</a></li>
+        <li><a href="services.html" class="text-slate-500 hover:text-[#795465]">Genetic Screening</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-bold text-on-surface mb-4">Contact</h5>
+      <p class="text-slate-500 text-sm mb-2">info@dradnancenter.qa</p>
+      <p class="text-slate-500 text-sm">+974 4498 9955</p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-12 pb-8 flex flex-col md:flex-row justify-between border-t border-outline-variant/10 pt-8 text-slate-500 text-xs">
+    <span data-i18n="footer.copy">© 2024 Dr. Adnan Center Doha. All Rights Reserved.</span>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <a class="hover:text-[#795465]" href="#">Instagram</a>
+      <a class="hover:text-[#795465]" href="#">LinkedIn</a>
+      <a class="hover:text-[#795465]" href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp FAB ── -->
+<div class="fixed bottom-8 right-8 z-[100] flex items-center justify-center">
+  <a class="bg-[#f8C8DC]/70 backdrop-blur-lg rounded-full p-4 border-2 border-white/20 shadow-[0_20px_40px_rgba(121,84,101,0.15)] hover:scale-110 hover:shadow-xl transition-all group"
+     href="https://wa.me/97444989955" target="_blank">
+    <span class="material-symbols-outlined text-[#336B03] text-3xl" style="font-variation-settings:'FILL' 1;">chat</span>
+    <div class="absolute right-full mr-4 bg-white px-4 py-2 rounded-lg text-sm font-bold text-primary shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      <span data-i18n="book.wa.btn">Start Chat Support</span>
+    </div>
+  </a>
+</div>
+
+<script src="lang.js"></script>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  document.getElementById('appointment-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

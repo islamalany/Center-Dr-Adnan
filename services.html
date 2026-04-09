@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Services | Dr. Adnan Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode:"class",
+    theme:{
+      extend:{
+        colors:{
+          "primary-container":"#f8c8dc","primary-fixed":"#ffd8e7","on-secondary-container":"#39710c",
+          "surface-variant":"#dde3e7","on-secondary":"#ffffff","on-error":"#ffffff","on-background":"#161d1f",
+          "surface-container-highest":"#dde3e7","outline-variant":"#d2c3c7","secondary-fixed":"#b3f583",
+          "secondary-container":"#b3f583","on-primary-fixed":"#2e1221","on-primary":"#ffffff",
+          "on-tertiary-container":"#346274","on-surface-variant":"#4f4448","outline":"#817478",
+          "on-tertiary":"#ffffff","surface-container":"#e8eff2","on-surface":"#161d1f","tertiary":"#376477",
+          "surface-container-high":"#e2e9ec","surface-container-low":"#eef5f8","on-secondary-fixed":"#0b2000",
+          "secondary":"#336b03","on-primary-container":"#765162","surface":"#f4fafe","error":"#ba1a1a",
+          "primary":"#795465","on-secondary-fixed-variant":"#245100","surface-bright":"#f4fafe",
+          "secondary-fixed-dim":"#98d86a","inverse-surface":"#2b3134","tertiary-container":"#aedcf2",
+          "on-error-container":"#93000a","error-container":"#ffdad6","surface-container-lowest":"#ffffff","background":"#f4fafe"
+        },
+        borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},
+        fontFamily:{"headline":["Plus Jakarta Sans","Cairo"],"body":["Inter","Cairo"],"label":["Inter","Cairo"]}
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family:'Inter','Cairo',sans-serif; }
+  h1,h2,h3,h4 { font-family:'Plus Jakarta Sans','Cairo',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .pearl-gradient { background:linear-gradient(135deg,#795465 0%,#f8c8dc 100%); }
+  .text-editorial { letter-spacing:-0.02em; line-height:1.6; }
+  #mobile-menu { display:none; }
+  #mobile-menu.open { display:block; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- ── Nav ── -->
+<nav class="sticky top-0 z-50 w-full bg-[#f4fafe]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(121,84,101,0.08)]">
+  <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">favorite</span>
+      </div>
+      <span data-i18n="nav.brand" class="text-2xl font-bold tracking-tighter text-[#795465]">Dr. Adnan Center</span>
+    </a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a data-i18n="nav.treatments" class="text-[#795465] font-bold border-b-2 border-[#795465] pb-1 hover:text-[#336B03] transition-colors" href="services.html">Treatments</a>
+      <a data-i18n="nav.ivf"        class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="#ivf-journey">IVF Journey</a>
+      <a data-i18n="nav.clinic"     class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#why-us">Our Clinic</a>
+      <a data-i18n="nav.stories"    class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#testimonials">Success Stories</a>
+      <a data-i18n="nav.contact"    class="text-slate-600 font-medium hover:text-[#336B03] transition-colors" href="index.html#footer">Contact</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleLang()" data-i18n="nav.lang" class="hidden md:block text-[#795465] font-bold">العربية</button>
+      <a data-i18n="nav.book" href="book-appointment.html" class="pearl-gradient text-white px-6 py-2 rounded-full font-bold transition-transform active:scale-95 inline-block">Book Appointment</a>
+      <button id="menu-toggle" class="md:hidden p-2 text-primary"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="bg-[#f4fafe] px-8 pb-6 md:hidden border-t border-outline-variant/10">
+    <div class="flex flex-col space-y-4 pt-4">
+      <a data-i18n="nav.treatments" href="services.html"             class="text-primary font-bold">Treatments</a>
+      <a data-i18n="nav.ivf"        href="#ivf-journey"              class="text-slate-600 font-medium">IVF Journey</a>
+      <a data-i18n="nav.clinic"     href="index.html#why-us"         class="text-slate-600 font-medium">Our Clinic</a>
+      <a data-i18n="nav.stories"    href="index.html#testimonials"   class="text-slate-600 font-medium">Success Stories</a>
+      <a data-i18n="nav.contact"    href="index.html#footer"         class="text-slate-600 font-medium">Contact</a>
+      <button onclick="toggleLang()" data-i18n="nav.lang" class="text-left text-[#795465] font-medium">العربية</button>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-6 pt-16 pb-24">
+
+  <!-- Hero -->
+  <header class="mb-20 text-center">
+    <h1 data-i18n="pg.svc.h1"  class="text-5xl md:text-7xl font-extrabold text-primary mb-6 tracking-tight">Our Services</h1>
+    <p  data-i18n="pg.svc.sub" class="text-xl text-on-surface-variant max-w-2xl mx-auto text-editorial">
+      Empowering your journey to parenthood with advanced reproductive science and compassionate, personalized care.
+    </p>
+  </header>
+
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+
+    <!-- IVF Primary Card -->
+    <div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl flex flex-col md:flex-row gap-10 items-center overflow-hidden shadow-[0_20px_40px_rgba(121,84,101,0.05)]">
+      <div class="flex-1 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-primary-container px-4 py-1 rounded-full text-on-primary-container font-semibold text-sm">
+          <span class="material-symbols-outlined text-sm">auto_awesome</span>
+          <span data-i18n="pg.svc.ivf.badge">Fertility Excellence</span>
+        </div>
+        <h2 data-i18n="pg.svc.ivf.h2" class="text-4xl font-bold text-primary">In Vitro Fertilization (IVF)</h2>
+        <p  data-i18n="pg.svc.ivf.p"  class="text-on-surface-variant text-editorial">
+          Our IVF program is designed to provide the highest success rates through personalized protocols. We blend cutting-edge technology with a nurturing environment to support you at every stage.
+        </p>
+        <div class="pt-4">
+          <a data-i18n="pg.svc.ivf.btn" href="book-appointment.html" class="text-primary font-bold inline-flex items-center gap-2 group">
+            Book IVF Consultation
+            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 w-full h-80 rounded-lg overflow-hidden">
+        <img class="w-full h-full object-cover" alt="IVF Laboratory"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMh32CA61gSUA8zaggS8rAU3hVrqnOdWhpAvt259r4H9NjoRjJBaJzwxfj60pjVm__mWkQi6D2dS1wklWQ50N9KNPUNSIB7pF7RP_LNhcqZdrBuhsju3EklGWusD5XlGuRVKILfyxCbzyToPu-YOxSFDL1TZyBlrX8TDPKgKbbroSO2a5G3Qy4EAzM4ONjanOofMShYrqckAmHCBA9aTp3ElguC3nJ-EL2H8pYv6JiNJeBy2NWlw8idtIFlwXAjAOx14pk8fUE-0s"/>
+      </div>
+    </div>
+
+    <!-- 4D Ultrasound -->
+    <div class="md:col-span-4 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between shadow-[0_20px_40px_rgba(121,84,101,0.03)]">
+      <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-tertiary shadow-sm">
+        <span class="material-symbols-outlined text-3xl">biotech</span>
+      </div>
+      <div>
+        <h3 data-i18n="pg.svc.4d.h3" class="text-2xl font-bold text-tertiary mb-3">4D Ultrasound</h3>
+        <p  data-i18n="pg.svc.4d.p"  class="text-on-surface-variant text-sm text-editorial mb-6">
+          Experience the first glimpses of your baby with high-resolution imaging that captures life in stunning detail.
+        </p>
+        <img class="w-full h-32 object-cover rounded-lg" alt="4D Ultrasound"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnDc4KEsEaIACrDkXmwR7AGdKpM4-fC3rZ9fOcZzfP19xHENCHJiB4xNZgUaG_wyHK6U2l30cFDfMV_dWl41nMs4AOa3rYRYqTYm8y2O-w2by7vaFbgQN-MtW4PcoNpFcx3JwIHzb66qHrTHQ0YhvJHRrZG3XUcvnrv_C1JLEwEIgTatdyAQQDQjQH8qN74shCpKLPxseclxaibq8okrZ_ezPARvWn1vEnm32ZdPcm9or8FCgAjrkxTmrWCd7kwJHPHFPJhovJBGM"/>
+      </div>
+    </div>
+
+    <!-- Pregnancy Care -->
+    <div class="md:col-span-4 bg-[#e8f5e9] p-8 rounded-xl">
+      <div class="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined">pregnant_woman</span>
+      </div>
+      <h3 data-i18n="pg.svc.preg.h3" class="text-2xl font-bold text-on-secondary-container mb-3">Pregnancy Care</h3>
+      <p  data-i18n="pg.svc.preg.p"  class="text-on-surface-variant text-sm text-editorial">
+        Comprehensive prenatal support from conception to delivery, ensuring the health and well-being of both mother and child.
+      </p>
+    </div>
+
+    <!-- Genetics -->
+    <div class="md:col-span-8 bg-surface-container p-8 rounded-xl flex items-center gap-8">
+      <div class="flex-1">
+        <h3 data-i18n="pg.svc.gen.h3" class="text-2xl font-bold text-primary mb-3">Genetic Screening (PGT)</h3>
+        <p  data-i18n="pg.svc.gen.p"  class="text-on-surface-variant text-editorial">
+          Advanced PGT testing to screen for genetic conditions, increasing the likelihood of a healthy pregnancy and baby.
+        </p>
+      </div>
+      <div class="hidden md:flex w-48 h-32 bg-white/50 rounded-lg border border-outline-variant/20 items-center justify-center">
+        <span class="material-symbols-outlined text-primary text-5xl opacity-30" style="font-variation-settings:'FILL' 1;">genetics</span>
+      </div>
+    </div>
+
+    <!-- Male Infertility -->
+    <div class="md:col-span-6 bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(121,84,101,0.05)]">
+      <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+        <span class="material-symbols-outlined text-secondary text-3xl">male</span>
+      </div>
+      <h3 data-i18n="pg.svc.male.h3" class="text-xl font-bold mb-3">Male Infertility</h3>
+      <p  data-i18n="pg.svc.male.p"  class="text-on-surface-variant text-editorial">Comprehensive diagnostics and micro-surgical treatments including micro-TESE for the most complex male factor cases.</p>
+    </div>
+
+    <!-- Female Infertility -->
+    <div class="md:col-span-6 bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(121,84,101,0.05)]">
+      <div class="w-14 h-14 bg-tertiary/10 rounded-lg flex items-center justify-center mb-4">
+        <span class="material-symbols-outlined text-tertiary text-3xl">female</span>
+      </div>
+      <h3 data-i18n="pg.svc.female.h3" class="text-xl font-bold mb-3">Female Infertility</h3>
+      <p  data-i18n="pg.svc.female.p"  class="text-on-surface-variant text-editorial">Expert care for PCOS, endometriosis, diminished ovarian reserve, and other reproductive challenges.</p>
+    </div>
+  </div>
+
+  <!-- IVF Journey -->
+  <section id="ivf-journey" class="mb-32">
+    <div class="text-center mb-16">
+      <h2 data-i18n="journey.title" class="text-4xl font-bold text-primary mb-4">The IVF Journey</h2>
+      <p  data-i18n="journey.sub"   class="text-on-surface-variant">A simple, guided path to your growing family.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+      <div class="hidden md:block absolute top-1/4 left-0 w-full h-0.5 bg-primary-container z-0"></div>
+
+      <div class="relative z-10 text-center space-y-6">
+        <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto shadow-lg">
+          <span class="material-symbols-outlined text-3xl">medical_services</span>
+        </div>
+        <div>
+          <h4 data-i18n="journey.s1"   class="text-xl font-bold text-primary mb-2">1. Egg Retrieval</h4>
+          <p  data-i18n="journey.s1.d" class="text-on-surface-variant text-editorial text-sm">A simple, minimally invasive procedure to collect mature eggs under light sedation.</p>
+        </div>
+      </div>
+
+      <div class="relative z-10 text-center space-y-6">
+        <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto shadow-lg">
+          <span class="material-symbols-outlined text-3xl">science</span>
+        </div>
+        <div>
+          <h4 data-i18n="journey.s2"   class="text-xl font-bold text-primary mb-2">2. Fertilization</h4>
+          <p  data-i18n="journey.s2.d" class="text-on-surface-variant text-editorial text-sm">Expert embryologists combine eggs and sperm in our state-of-the-art lab to create embryos.</p>
+        </div>
+      </div>
+
+      <div class="relative z-10 text-center space-y-6">
+        <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto shadow-lg">
+          <span class="material-symbols-outlined text-3xl">handshake</span>
+        </div>
+        <div>
+          <h4 data-i18n="journey.s3"   class="text-xl font-bold text-primary mb-2">3. Embryo Transfer</h4>
+          <p  data-i18n="journey.s3.d" class="text-on-surface-variant text-editorial text-sm">The healthiest embryo is gently placed in the uterus to begin your pregnancy journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-primary-container rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="relative z-10 max-w-2xl mx-auto space-y-8">
+      <h2 data-i18n="svc.cta.title" class="text-4xl md:text-5xl font-extrabold text-[#2e1221] tracking-tight">Your story starts with a conversation.</h2>
+      <p  data-i18n="svc.cta.desc"  class="text-on-primary-container text-lg">
+        Book a consultation with Dr. Adnan and our team of experts today. We are here to listen, support, and guide you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+        <a data-i18n="svc.cta.btn1" href="book-appointment.html"    class="pearl-gradient text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-transform active:scale-95 inline-block">Schedule a Consultation</a>
+        <a data-i18n="svc.cta.btn2" href="index.html#testimonials"  class="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg border border-primary/10 hover:bg-surface-container-low transition-colors inline-block">View Success Stories</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ── Footer ── -->
+<footer class="rounded-t-[3rem] mt-20 bg-[#eef5f8]">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-7xl mx-auto">
+    <div class="col-span-1 md:col-span-1">
+      <div class="text-xl font-bold text-[#795465] mb-6">Dr. Adnan Center</div>
+      <p data-i18n="footer.about" class="text-slate-500 text-sm leading-relaxed">A premier fertility boutique center in the heart of Doha, dedicated to providing world-class IVF and reproductive care.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 data-i18n="footer.quick" class="font-bold text-[#376477]">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a data-i18n="footer.privacy"  href="#" class="text-slate-500 hover:text-[#795465]">Privacy Policy</a></li>
+        <li><a data-i18n="footer.rights"   href="#" class="text-slate-500 hover:text-[#795465]">Patient Rights</a></li>
+        <li><a data-i18n="footer.careers"  href="#" class="text-slate-500 hover:text-[#795465]">Careers</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h4 data-i18n="footer.visit" class="font-bold text-[#376477]">Contact</h4>
+      <p class="text-slate-500 text-sm">Unnamed Road, Doha, Qatar</p>
+      <p class="text-slate-500 text-sm">+974 4498 9955</p>
+    </div>
+    <div class="space-y-4">
+      <h4 data-i18n="footer.newsletter" class="font-bold text-[#376477]">Newsletter</h4>
+      <div class="flex gap-2">
+        <input data-i18n-ph="footer.email.ph" class="bg-white border-none rounded-full px-4 py-2 w-full text-sm" placeholder="Email" type="email"/>
+        <button class="bg-[#795465] text-white p-2 rounded-full"><span class="material-symbols-outlined">send</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-slate-200/50 py-8 text-center text-slate-400 text-xs">
+    <span data-i18n="footer.copy">© 2024 Dr. Adnan Center Doha. All Rights Reserved.</span>
+  </div>
+</footer>
+
+<!-- ── WhatsApp FAB ── -->
+<div class="fixed bottom-8 right-8 z-[100]">
+  <div class="group relative flex items-center">
+    <div class="absolute right-full mr-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+      <div class="bg-white/70 backdrop-blur-xl px-4 py-2 rounded-lg shadow-xl border border-white/20 whitespace-nowrap">
+        <p data-i18n="wa.tooltip.title" class="text-primary font-bold text-sm">Fertility Support 24/7</p>
+        <p data-i18n="wa.tooltip.sub"   class="text-xs text-on-surface-variant">Start Chat</p>
+      </div>
+    </div>
+    <a href="https://wa.me/97444989955" target="_blank"
+       class="bg-[#f8C8DC]/70 backdrop-blur-lg flex items-center gap-3 px-4 py-3 rounded-full border-2 border-white/20 shadow-[0_20px_40px_rgba(121,84,101,0.15)] hover:scale-110 transition-all">
+      <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-[#336B03]">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">chat</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script src="lang.js"></script>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
